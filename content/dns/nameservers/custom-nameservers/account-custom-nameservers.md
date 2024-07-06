@@ -62,6 +62,12 @@ Cloudflare will assign an IPv4 and an IPv6 address to each ACNS name.
 
 To make these ACNS the default nameservers for all new zones added to your account from now on, use the [Update Account endpoint](/api/operations/accounts-update-account) and set the value of `default_nameservers` to `custom.account`.
 
+{{<Aside type="note">}}
+
+Cloudflare will always choose a different set of nameservers from the available sets for a new child zone to avoid conflicts with its parent's nameservers. Should there not be any different set of nameservers available, the child zone will be reverted to using the standard Cloudflare nameservers.
+
+{{</Aside>}}
+
 ## Disable account custom nameservers
 
 ### 1. Remove ACNS assignment from zones
